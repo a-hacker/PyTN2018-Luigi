@@ -40,4 +40,4 @@ substitutions2 = {
 
 
 def get_input_file():
-    return "usr/local/luigi/datafiles/example.txt"
+    return "usr/local/luigi/datafiles/example1.txt"

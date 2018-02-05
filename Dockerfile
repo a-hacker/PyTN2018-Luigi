@@ -19,7 +19,6 @@ RUN yum -y update \
 RUN chmod 755 /entrypoint.sh
 
 COPY luigi.cfg ${LUIGI_HOME}/luigi.cfg
-COPY datafiles/example*.txt  ${LUIGI_HOME}/
 
 EXPOSE 8082
 
@@ -27,6 +26,6 @@ USER luigi
 WORKDIR ${LUIGI_HOME}
 
 RUN mkdir  ${LUIGI_HOME}/logs \
-  && mkdir ${LUIGI_HOME}/input
+  && mkdir ${LUIGI_HOME}/datafiles
 
 ENTRYPOINT ["/entrypoint.sh"]
