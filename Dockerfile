@@ -19,7 +19,7 @@ RUN yum -y update \
 RUN chmod 755 /entrypoint.sh
 
 COPY luigi.cfg ${LUIGI_HOME}/luigi.cfg
-COPY datafiles/example.txt  ${LUIGI_HOME}/example.txt
+COPY datafiles/example*.txt  ${LUIGI_HOME}/
 
 EXPOSE 8082
 
