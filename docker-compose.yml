@@ -1,6 +1,22 @@
 version: '2'
 
 services:
-  luigi:
+  scheduler:
     build: .
     privileged: true
+    ports:
+      - "8082:8082"
+    volumes:
+      - ./dags:/usr/local/luigi/dags
+      - ./datafiles:/usr/local/luigi/datafiles
+    command: scheduler
+
+  worker:
+    build: .
+    privileged: true
+    depends_on:
+      - scheduler
+    volumes:
+      - ./demo-solutions:/usr/local/luigi/dags
+    command: worker
+
