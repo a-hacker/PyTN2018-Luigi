@@ -1,3 +1,5 @@
+import luigi
+
 substitutions = {
     "witnesses": "these dudes I know",
     "allegedly": "kinda probably",
@@ -15,6 +17,9 @@ substitutions = {
     "could not be reached for comment": "is guilty and everyone knows it"
 }
 
-
 def get_input_file():
     return "/usr/local/luigi/datafiles/example1.txt"
+
+
+if __name__ == "__main__":
+    luigi.run()

@@ -18,9 +18,13 @@ substitutions = {
 }
 
 
+def get_input_file():
+    return "usr/local/luigi/datafiles/example1.txt"
+
+
 class ArticleText(luigi.ExternalTask):
     def output(self):
-        return luigi.LocalTarget("/usr/local/luigi/example.txt")
+        return luigi.LocalTarget(get_input_file())
 
 
 class SubstitutionTask(luigi.Task):
@@ -35,7 +39,7 @@ class SubstitutionTask(luigi.Task):
             outfile.write(text)
 
     def output(self):
-        return luigi.LocalTarget("/usr/local/luigi/subbed.txt")
+        return luigi.LocalTarget("/usr/local/luigi/subbed_example.txt")
 
 if __name__ == '__main__':
     luigi.run()
